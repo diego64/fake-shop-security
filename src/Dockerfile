@@ -1,10 +1,9 @@
-FROM python:3.11.0
-EXPOSE 5000
+FROM cgr.dev/chainguard/python:3.11
+WORKDIR /application
 COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
-WORKDIR /app
-COPY . /app
-RUN chmod +x /app/entrypoint.sh
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+RUN chmod +x entrypoint.sh && mkdir -p /tmp/metrics
 ENV PROMETHEUS_MULTIPROC_DIR=/tmp/metrics
-RUN mkdir -p /tmp/metrics 
-CMD ["/app/entrypoint.sh"]
+EXPOSE 5000
+CMD ["./entrypoint.sh"]
