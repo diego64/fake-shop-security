@@ -56,4 +56,4 @@ Para configurar a aplicação, defina as seguintes variáveis de ambiente:
 
 ## 🚨 Segurança
 
-Como esse repositório é para simular um ambiente dentro de uma máquina, alguns arquivos foram enviados somente a nivel demostração mas nunca deverão ser espostos a nivel de produção pois contem informações de seguraça.
+Este repositório tem como objetivo demonstrar a criação e configuração de containers e imagens Docker. Alguns arquivos foram incluídos apenas para fins ilustrativos. Jamais publique arquivos sensíveis em repositórios públicos, pois isso pode acarretar sérios riscos de segurança.
