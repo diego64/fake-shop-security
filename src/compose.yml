@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: fake-shop-prod
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    environment:
+      ENV: prod
+    ports:
+      - "${PORT_API_LOCAL:-8000}:${PORT_API_EXPOSE:-8000}"
+    command: ["gunicorn", "app:app", "--bind", "0.0.0.0:8000", "--workers", "4"]

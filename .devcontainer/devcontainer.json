@@ -1,0 +1,36 @@
+{
+  "name": "Fake Shop Homologation DevContainer",
+  "dockerComposeFile": [
+    "docker-compose.override.yml"
+  ],
+  "service": "api",
+  "workspaceFolder": "/app",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "extensions": [
+    "ms-python.python",
+    "humao.rest-client",
+    "ms-azuretools.vscode-docker"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/src,target=/app,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "launch": {
+        "version": "0.2.0",
+        "configurations": [
+          {
+            "name": "Python: Start index.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/index.py",
+            "console": "integratedTerminal"
+          }
+        ]
+      }
+    }
+  }
+}
